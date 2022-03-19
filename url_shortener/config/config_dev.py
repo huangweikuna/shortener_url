@@ -14,7 +14,7 @@ DATABASES = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "shortener-redis-master:6379/0",
+        "LOCATION": "redis://shortener-redis-master:6379/0",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PASSWORD": "12345678"
