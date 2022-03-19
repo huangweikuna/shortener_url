@@ -3,7 +3,7 @@ dependencies:
   repository: https://charts.helm.sh/stable
   version: 1.6.9
 - name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 16.5.4
-digest: sha256:315af36b966441e08584c1faf7c2d8128b3334b79af77eb1cc110db9d86166fa
-generated: "2022-03-19T17:26:49.170375+08:00"
+  repository: https://charts.helm.sh/stable
+  version: 10.5.7
+digest: sha256:242023a1600e461bf70b58a10c6ac2dd076701b89a811c7128ada120a2b894d2
+generated: "2022-03-19T18:04:38.0139+08:00"

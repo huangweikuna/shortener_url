@@ -104,17 +104,15 @@ mysql:
   mysqlRootPassword: "12345678"
 redis:
   enabled: true
-    # Only used when internal redis is disabled
-    # host: redis
   password: "12345678"
-  # port: 6379
   master:
     persistence:
-      enabled: true
-      storageClass: standard
+      enabled: false
   slave:
     persistence:
-      enabled: true
-      storageClass: standard
+      enabled: false
+  cluster:
+    enable: false
+
 
 env: "dev"
