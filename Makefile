@@ -9,3 +9,5 @@ install:
 	helm install shortener ./depoy/url-shortener/
 uninstall:
 	helm uninstall shortener
+upgrade:
+	helm upgrade --install shortener deploy/url-shortener/
