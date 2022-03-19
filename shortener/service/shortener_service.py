@@ -32,6 +32,7 @@ class ShortenerService(object):
         # 二级缓存
         code = cache.get(url, self.sentinel)
         if code is self.sentinel:
+            print("redis")
             url_obj = self._put_if_absent(url)
             code = url_obj[0].code
             cache.set(url, code, timeout=random.randint(settings.REDIS_MAX_EX, settings.REDIS_MIN_EX))
