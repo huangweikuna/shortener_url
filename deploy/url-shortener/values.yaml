@@ -84,22 +84,37 @@ affinity: {}
 
 mysql:
   enable: true
-  auth:
-    rootPassword: 12345678
-  initdbScriptsConfigMap: "sql-init"
+  persistence:
+    enabled: false
+  initializationFiles:
+    init.sql: |
+      CREATE DATABASE IF NOT EXISTS url_shortener DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+      USE url_shortener;
+      CREATE TABLE `shortener_url` (
+        `id` bigint(20) NOT NULL AUTO_INCREMENT,
+        `url` varchar(2038) NOT NULL,
+        `url_hash` int(10) unsigned NOT NULL,
+        `code` varchar(9) NOT NULL,
+        `code_hash` int(10) unsigned NOT NULL,
+        `create_date` datetime(6) NOT NULL,
+        PRIMARY KEY (`id`),
+        KEY `shortener_url_url_hash_edb07c13` (`url_hash`),
+        KEY `shortener_url_code_hash_fc8f368e` (`code_hash`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  mysqlRootPassword: "12345678"
 redis:
   enabled: true
     # Only used when internal redis is disabled
     # host: redis
-    password: 12345678
-    # port: 6379
-    master:
-      persistence:
-        enabled: true
-        storageClass: standard
-    slave:
-      persistence:
-        enabled: true
-        storageClass: standard
+  password: "12345678"
+  # port: 6379
+  master:
+    persistence:
+      enabled: true
+      storageClass: standard
+  slave:
+    persistence:
+      enabled: true
+      storageClass: standard
 
-env: dev
+env: "dev"
