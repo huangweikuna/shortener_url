@@ -345,4 +345,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/venv,python,vim,windows,macos,pycharm
 
-release_user/config/config_local.py
+url_shortener/config/config_local.py
