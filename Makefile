@@ -5,5 +5,7 @@ tag:build
 push:tag
 	docker push freekn/shortener
 
-helm:
+install:
 	helm install shortener ./depoy/url-shortener/
+uninstall:
+	helm uninstall shortener
