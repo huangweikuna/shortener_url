@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: "url-shortener"
+  name: url-shortener
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "url-shortener"
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: "url-shortener"
+    spec:
+      dnsPolicy: Default
+      restartPolicy: Always
+      containers:
+        - name: ops-api
+          image: $IMAGE
+          imagePullPolicy: Always
+          env:
+            - name: ENV
+              value: "dev"
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            successThreshold: 1
+            tcpSocket:
+              port: 80
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 2
+            successThreshold: 1
+            tcpSocket:
+              port: 80
+            timeoutSeconds: 2
+          resources:
+            limits:
+              cpu: 1
+              memory: 1Gi
+            requests:
+              cpu: 1
+              memory: 1Gi
