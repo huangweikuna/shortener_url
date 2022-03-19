@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: false
@@ -51,7 +51,7 @@ ingress:
       - path: /
         backend:
           serviceName: url-shortener.com
-          servicePort: 80
+          servicePort: 8080
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

@@ -38,7 +38,7 @@ spec:
               value: {{ .Values.env }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             failureThreshold: 3
@@ -46,7 +46,7 @@ spec:
             periodSeconds: 2
             successThreshold: 1
             tcpSocket:
-              port: 80
+              port: 8080
             timeoutSeconds: 1
           readinessProbe:
             failureThreshold: 3
@@ -54,7 +54,7 @@ spec:
             periodSeconds: 2
             successThreshold: 1
             tcpSocket:
-              port: 80
+              port: 8080
             timeoutSeconds: 2
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

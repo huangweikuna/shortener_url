@@ -10,4 +10,4 @@ RUN set -eux && \
     apt-get install -y default-libmysqlclient-dev build-essential && \
     rm -rf /var/lib/apt/lists/*
 RUN pip install -r /app/requirements.txt
-CMD ["python","manage.py","runserver","0.0.0.0:80"]
+CMD ["python","manage.py","runserver","0.0.0.0:8080"]
