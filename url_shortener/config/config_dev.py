@@ -5,7 +5,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shortener_url',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '12345678',
         'HOST': 'mysql',
         'PORT': '3306',
     }
@@ -17,7 +17,7 @@ CACHES = {
         "LOCATION": "redis:6379/0",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "123456"
+            "PASSWORD": "12345678"
         }
     }
 }

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sql-init
+data:
+  init.sql: |
+      CREATE TABLE `shortener_url` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+    `url` varchar(2038) NOT NULL,
+    `url_hash` int(10) unsigned NOT NULL,
+    `code` varchar(9) NOT NULL,
+    `code_hash` int(10) unsigned NOT NULL,
+    `create_date` datetime(6) NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `shortener_url_url_hash_edb07c13` (`url_hash`),
+    KEY `shortener_url_code_hash_fc8f368e` (`code_hash`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
