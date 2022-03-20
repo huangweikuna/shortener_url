@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: freekn/shortener
@@ -70,11 +70,11 @@ resources:
      memory: 128Mi
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
@@ -89,7 +89,7 @@ mysql:
   initializationFiles:
     init.sql: |
       CREATE DATABASE IF NOT EXISTS shortener_url DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-      USE url_shortener;
+      USE shortener_url;
       CREATE TABLE `shortener_url` (
         `id` bigint(20) NOT NULL AUTO_INCREMENT,
         `url` varchar(2038) NOT NULL,
