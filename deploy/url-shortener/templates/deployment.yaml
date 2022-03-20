@@ -41,16 +41,16 @@ spec:
               containerPort: 8080
               protocol: TCP
           livenessProbe:
-            failureThreshold: 3
-            initialDelaySeconds: 100
+            failureThreshold: 5
+            initialDelaySeconds: 60
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
               port: 8080
             timeoutSeconds: 5
           readinessProbe:
-            failureThreshold: 3
-            initialDelaySeconds: 100
+            failureThreshold: 5
+            initialDelaySeconds: 60
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
