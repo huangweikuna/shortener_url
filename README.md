@@ -37,10 +37,4 @@ curl -X 'POST' url-shortener.com/newurl -d '{"url":"https://www.google.com"}'
 服务架构图如下：
 <img width="375" alt="image" src="https://user-images.githubusercontent.com/41366091/159145678-32f0d439-6d7e-491d-8345-61d824de0c58.png">
 
-## 待改进
 
-- 限流
-- 防止缓存穿透（布隆过滤器）
-- 更加安全可靠的组件集群部署
-- 监控
-- 日志
